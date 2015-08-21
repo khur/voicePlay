@@ -1,0 +1,30 @@
+<html ng-app="voicePlay">
+  <head>
+    <link rel="stylesheet" href="microphone/microphone.min.css">
+  </head>
+  <body style="text-align: center;" ng-controller="voiceController as voice">
+
+    <center><div id="microphone"></div></center>
+    <pre id="result"></pre>
+    <div id="info"></div>
+    <div id="error"></div>
+
+    <br>
+    <br>
+    <br>
+
+    <div id="soundCloud" style="width: 80%; margin: 0 auto;"></div>
+
+    <!-- Angular -->
+    <script src="angular.js"></script>
+    <!-- Wit.ai api microphone -->
+    <script src="microphone/microphone.min.js"></script>
+    <!-- SoundCloud api -->
+    <script src="//connect.soundcloud.com/sdk-2.0.0.js"></script>
+    <!-- App Javascript -->
+    <script src="app.js"></script>
+    
+
+
+  </body>
+  </html>
