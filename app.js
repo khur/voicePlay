@@ -53,6 +53,9 @@ function voiceController() {
         }
       }
       artist = entities.artist.body;
+      if(!artist){
+      	document.getElementById("soundCloud").innerHTML = "<p>We got is buuuut..</p>";
+      }
       document.getElementById("result").innerHTML = r;
       
       // Embeds SoundCloud widget on result of search
@@ -64,6 +67,9 @@ function voiceController() {
 
       console.log("track url: " + track_url);
       SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
+      	if(oEmbed === null){
+      		document.getElementById("soundCloud").innerHTML = "<p>Doesn't exist! Try again!</p>";
+      	}
         console.log('oEmbed response: ' + oEmbed);
         console.dir(oEmbed);
         document.getElementById("soundCloud").innerHTML = oEmbed.html;
