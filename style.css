@@ -1,0 +1,20 @@
+#micContainer{
+	text-align: center;
+}
+
+
+#soundCloud{
+	width: 90%;
+}
+
+
+#scContainer{
+	border: 1px solid black;
+	width: 40%;
+
+}
+
+/*#scContainer:hover{
+	transform: translateX(0px);
+	transition: all 2s;
+}*/

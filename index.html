@@ -1,19 +1,29 @@
 <html ng-app="voicePlay">
   <head>
     <link rel="stylesheet" href="microphone/microphone.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body style="text-align: center;" ng-controller="voiceController as voice">
+  <body ng-controller="voiceController as voice">
 
-    <center><div id="microphone"></div></center>
-    <pre id="result"></pre>
-    <div id="info"></div>
-    <div id="error"></div>
+<button ng-hide="voice.vis" ng-click="voice.show()">Hide</button>
+<button ng-show="voice.vis"  ng-click="voice.hide()">Show</button>
+    <div id="micContainer">
+      <center><div id="microphone"></div></center>
+      <pre id="result"></pre>
+      <div id="info"></div>
+      <div id="error"></div>
+    </div>
 
     <br>
     <br>
     <br>
 
-    <div id="soundCloud" style="width: 80%; margin: 0 auto;"></div>
+    <div id="scContainer" ng-hide="voice.getSuccess">
+      <div id="soundCloud" ></div>
+    </div>
+
+    
+
 
     <!-- Angular -->
     <script src="angular.js"></script>
