@@ -15,16 +15,14 @@ function voiceController() {
     ctrl.show = show;
     ctrl.hide = hide;
 
-    function show(){
-    	return ctrl.getSuccess = true,
-    	 ctrl.vis = true;
-    	 
+    function show() {
+        return ctrl.getSuccess = true, ctrl.vis = true;
     }
 
-   	function hide(){
-   		return ctrl.getSuccess = false, ctrl.vis = false;
-    	 
-   	}
+    function hide() {
+        return ctrl.getSuccess = false, ctrl.vis = false;
+
+    }
 
 
 
@@ -78,7 +76,7 @@ function voiceController() {
             // Embeds SoundCloud widget on result of search
             sanitizeUrl(artist);
 
-            
+
 
             SC.initialize({
                 client_id: 'YOUR_CLIENT_ID'
@@ -97,7 +95,7 @@ function voiceController() {
                 console.dir(oEmbed);
 
                 document.getElementById("soundCloud").innerHTML = oEmbed.html;
-                 
+
             });
         }
 

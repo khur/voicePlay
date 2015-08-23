@@ -1,30 +1,31 @@
 <html ng-app="voicePlay">
-  <head>
+
+<head>
     <link rel="stylesheet" href="microphone/microphone.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body ng-controller="voiceController as voice">
+</head>
 
-<button ng-hide="voice.vis" ng-click="voice.show()">Hide</button>
-<button ng-show="voice.vis"  ng-click="voice.hide()">Show</button>
-    <div id="micContainer">
-      <center><div id="microphone"></div></center>
-      <pre id="result"></pre>
-      <div id="info"></div>
-      <div id="error"></div>
+<body ng-controller="voiceController as voice">
+    <div id="controls">
+        <button ng-click="showIt='micContainerShow'" ng-hide="showIt">Show Mic</button>
+        <button ng-click="showIt=''" ng-show="showIt">Hide Mic</button>
+        <button ng-hide="voice.vis" ng-click="voice.show()">Hide</button>
+        <button ng-show="voice.vis" ng-click="voice.hide()">Show</button>
     </div>
-
-    <br>
-    <br>
-    <br>
-
-    <div id="scContainer" ng-hide="voice.getSuccess">
-      <div id="soundCloud" ></div>
+    <div class="micContainerBase" ng-class="showIt">
+        <center>
+            <div id="microphone"></div>
+        </center>
+        <div id="info"></div>
+        <div style="visibility: hidden;">
+        <pre id="result"></pre>
+        
+        <div id="error"></div>
+        </div>
     </div>
-
-    
-
-
+    <footer class="scContainer" ng-hide="voice.getSuccess">
+        <div id="soundCloud"></div>
+    </footer>
     <!-- Angular -->
     <script src="angular.js"></script>
     <!-- Wit.ai api microphone -->
@@ -33,8 +34,6 @@
     <script src="//connect.soundcloud.com/sdk-2.0.0.js"></script>
     <!-- App Javascript -->
     <script src="app.js"></script>
-    
+</body>
 
-
-  </body>
-  </html>
+</html>
