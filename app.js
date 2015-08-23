@@ -70,6 +70,7 @@ function voiceController() {
         }
 
         artist = entities.artist.body;
+
         if (!artist || artist === undefined) {
             document.getElementById("soundCloud").innerHTML = "<p>We got is buuuut..</p>";
         } else {
@@ -82,15 +83,21 @@ function voiceController() {
                 client_id: 'YOUR_CLIENT_ID'
             });
 
+
+
             var track_url = 'http://soundcloud.com/' + artist;
 
             console.log("track url: " + track_url);
+
+
             SC.oEmbed(track_url, {
                 auto_play: true
             }, function(oEmbed) {
+
                 if (oEmbed === null) {
                     document.getElementById("soundCloud").innerHTML = "<p>Doesn't exist! Try again!</p>";
                 }
+
                 console.log('oEmbed response: ' + oEmbed);
                 console.dir(oEmbed);
 
@@ -130,7 +137,7 @@ function voiceController() {
 
 
     function sanitizeUrl(str) {
-        var n = str.split(' ').join('-')
+        var n = str.split(' ').join('%20')
         console.log(n);
         return n;
     }

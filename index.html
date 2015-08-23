@@ -12,7 +12,7 @@
           <img src="http://www.workz.com/wp-content/themes/workz4/images/menu.png" ng-click="showControls = 'show'">
         </div>
 
-        <h1>Welcome to my Super Secret Music Site</h1>
+        <h1>Voice Play</h1>
     </header>
 
 
@@ -24,8 +24,10 @@
         <button ng-hide="voice.vis" ng-click="voice.show()">Hide Music</button>
         <button ng-show="voice.vis" ng-click="voice.hide()">Show Music</button>
     </div>
+
     <div class="micContainerBase" ng-class="showIt">
         <center>
+          <p>Say: "Play" and the artist of your choice.</p>
             <div id="microphone"></div>
         </center>
         <div id="info"></div>
@@ -34,6 +36,33 @@
             <div id="error"></div>
         </div>
     </div>
+
+
+    <section>
+      <P>This is the site where you can play the music you want! Using the Wit.ai api along with SoundClound you can find the playlists you want</P>
+    </section>
+
+    <section>
+      <p>Here is how it works:</p>
+      <ul>
+        <li>Use the menu to the left</li>
+        <li>Expose the microphone and speak your command</li>
+        <li>Your playlist/collection will play shortly after</li>
+        <li>You can then hide both the SoundCloud iframe as well as the Microphone</li>
+        <li>ENJOY!</li>
+
+      </ul>
+    </section>
+
+
+
+
+
+
+
+
+
+
     <footer class="scContainer" ng-hide="voice.getSuccess">
         <div id="soundCloud"></div>
     </footer>

@@ -6,22 +6,30 @@
 
 body{
 	font-family: helvetica neue;
-	background: -webkit-linear-gradient(red, blue); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(red, blue); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(red, blue); /* For Firefox 3.6 to 15 */
-  background: linear-gradient( rgba(185, 219, 242,1), rgba(152, 185,242,1)); /* Standard syntax */
+	background: -webkit-linear-gradient(to top left, rgba(30, 139, 242,1), rgba(130, 185,242,1)); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(to top left, rgba(30, 139, 242,1), rgba(130, 185,242,1)); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(to top left, rgba(30, 139, 242,1), rgba(130, 185,242,1)); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to top left, rgba(30, 139, 242,1), rgba(130, 185,242,1)); /* Standard */
+    background: linear-gradient( to top left, rgba(30, 139, 242,1), rgba(130, 185,242,1)); /* Standard syntax */
 }
 
 header{
 	display: flex;
+	color: white;
 }
 
 
 /* STYLING FOR MIC*/
 .micContainerBase {
     width: 75%;
+    padding: 10px;
     text-align: center;
     transform: translateY(-300px);
+    background: -webkit-linear-gradient(to bottom right, white 65%, rgba(255, 255,255,.01)); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(to bottom right, white 65%, rgba(255, 255,255,.01)); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(to bottom right, white 65%, rgba(255, 255,255,.01)); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to bottom right, white 65%, rgba(255, 255,255,.01)); /* Standard */
+    border-radius: 10px;
     margin: 0 auto;
     transition: all 1s;
     z-index: -1;
@@ -32,7 +40,6 @@ header{
 
 .micContainerBase.micContainerShow {
     position: fixed;
-    background: none;
     text-align: center;
     transform: translateY(50px);
     transition: all 1s;
@@ -63,12 +70,13 @@ header{
 
 .controls {
 	transition: all 1s;
-	background: linear-gradient(gray, black);
-    width: 100px;
+	background: linear-gradient(rgba(4, 84, 184, 1), rgba(2, 44, 97, 1));
+    border-right: 3px solid white;
+    width: 150px;
     height: 100vh;
     position: fixed;
     text-align: center;
-    transform: translateX(-100px);
+    transform: translateX(-150px);
     z-index: 3;
     top: 0;
 }
@@ -100,4 +108,25 @@ h1{
 	flex: 2;
 	text-align: center;
 	font-size: 3em;
+}
+
+section{
+	color: navy;
+	width: 75%;
+	margin: 30px auto;
+	font-size: 2em;
+
+}
+
+ul{
+	width: 85%;
+	margin: 0 auto;
+}
+
+
+li{
+	list-style-type: none;
+	color: rgb(243, 255, 226);
+	margin-left: 15px;
+	margin-top: 5px;
 }
