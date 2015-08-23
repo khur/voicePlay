@@ -1,25 +1,33 @@
 * {
     margin: 0;
     padding: 0;
+    outline: none;
 }
 
+body{
+	font-family: helvetica neue;
+	background: -webkit-linear-gradient(red, blue); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(red, blue); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(red, blue); /* For Firefox 3.6 to 15 */
+  background: linear-gradient( rgba(185, 219, 242,1), rgba(152, 185,242,1)); /* Standard syntax */
+}
+
+header{
+	display: flex;
+}
+
+
+/* STYLING FOR MIC*/
 .micContainerBase {
     width: 75%;
     text-align: center;
-    transform: translateY(-200px);
+    transform: translateY(-300px);
     margin: 0 auto;
     transition: all 1s;
     z-index: -1;
     position: fixed;
     left: 12.5%;
-}
-
-#controls {
-    width: 50px;
-    height: 50px;
-    background: purple;
-    position: fixed;
-    text-align: center;
+    color: black;
 }
 
 .micContainerBase.micContainerShow {
@@ -32,11 +40,7 @@
     left: 12.5%;
 }
 
-#soundCloud {
-    width: 100%;
-    margin: 0 auto;
-}
-
+/*STYLING FOR SOUNDCLOUD EMBEDDED*/
 .scContainer {
     width: 100%;
     z-index: 1;
@@ -50,8 +54,50 @@
     transition: all 2s;
 }
 
+#soundCloud {
+    width: 100%;
+    margin: 0 auto;
+}
 
-/*#scContainer:hover{
+/*CONTROL PANEL STYLING*/
+
+.controls {
+	transition: all 1s;
+	background: linear-gradient(gray, black);
+    width: 100px;
+    height: 100vh;
+    position: fixed;
+    text-align: center;
+    transform: translateX(-100px);
+    z-index: 3;
+    top: 0;
+}
+
+.controls.show{
 	transform: translateX(0px);
-	transition: all 2s;
-}*/
+	transition: all 1s;
+	z-index: 3;
+	top: 0;
+}
+
+
+/*SPECIFIC ELEMENT CODE*/
+button{
+	margin: 5px;
+	color: white;
+	padding: 10px;
+	border: none;
+	/*border-radius: 5px;*/
+	background: none;
+	width: 70px;
+}
+
+img{
+	width: 50px	;
+}
+
+h1{
+	flex: 2;
+	text-align: center;
+	font-size: 3em;
+}

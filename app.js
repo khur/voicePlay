@@ -50,7 +50,7 @@ function voiceController() {
         error("");
     };
     mic.onaudioend = function() {
-        info("<h1>Recording stopped, processing started</h1>");
+        info("Recording stopped, processing started");
     };
     mic.onresult = function(intent, entities) {
         var r = kv("intent", intent);
