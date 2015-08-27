@@ -6,17 +6,12 @@
 </head>
 
 <body ng-controller="voiceController as voice">
-
     <header>
         <div>
-          <img src="http://www.workz.com/wp-content/themes/workz4/images/menu.png" ng-click="showControls = 'show'">
+            <img src="menu.png" ng-click="showControls = 'show'">
         </div>
-
         <h1>Voice Play</h1>
     </header>
-
-
-
     <div class="controls" ng-class="showControls">
         <button ng-click="showControls=''" style="text-align: right;">X</button>
         <button ng-click="showIt='micContainerShow'" ng-hide="showIt">Show Mic</button>
@@ -24,10 +19,9 @@
         <button ng-hide="voice.vis" ng-click="voice.show()">Hide Music</button>
         <button ng-show="voice.vis" ng-click="voice.hide()">Show Music</button>
     </div>
-
     <div class="micContainerBase" ng-class="showIt">
         <center>
-          <p>Say: "Play" and the artist of your choice.</p>
+            <p>Say: "Play" and the artist of your choice.</p>
             <div id="microphone"></div>
         </center>
         <div id="info"></div>
@@ -36,33 +30,19 @@
             <div id="error"></div>
         </div>
     </div>
-
-
     <section>
-      <P>This is the site where you can play the music you want! Using the Wit.ai api along with SoundClound you can find the playlists you want</P>
+        <P>This is the site where you can play the music you want! Using the Wit.ai api along with SoundClound you can find the playlists you want</P>
     </section>
-
     <section>
-      <p>Here is how it works:</p>
-      <ul>
-        <li>Use the menu to the left</li>
-        <li>Expose the microphone and speak your command</li>
-        <li>Your playlist/collection will play shortly after</li>
-        <li>You can then hide both the SoundCloud iframe as well as the Microphone</li>
-        <li>ENJOY!</li>
-
-      </ul>
+        <p>Here is how it works:</p>
+        <ul>
+            <li>Use the menu to the left</li>
+            <li>Expose the microphone and speak your command</li>
+            <li>Your playlist/collection will play shortly after</li>
+            <li>You can then hide both the SoundCloud iframe as well as the Microphone</li>
+            <li>ENJOY!</li>
+        </ul>
     </section>
-
-
-
-
-
-
-
-
-
-
     <footer class="scContainer" ng-hide="voice.getSuccess">
         <div id="soundCloud"></div>
     </footer>
