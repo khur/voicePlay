@@ -80,7 +80,7 @@ function voiceController() {
 
 
             SC.initialize({
-                client_id: 'YOUR_CLIENT_ID'
+                client_id: 'H5QMXAT27JD7BXIFPF5EIFU23VT2XFTV'
             });
 
 
