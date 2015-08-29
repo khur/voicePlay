@@ -43,7 +43,7 @@ header{
     text-align: center;
     transform: translateY(50px);
     transition: all 1s;
-    z-index: 2;
+    z-index: 5;
     left: 12.5%;
 }
 
@@ -129,4 +129,8 @@ li{
 	color: rgb(243, 255, 226);
 	margin-left: 15px;
 	margin-top: 5px;
+}
+
+#develop{
+    visibility: hidden;
 }

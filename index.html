@@ -9,24 +9,24 @@
 <!-- [if safari]> <script> alert("this is safari")</script> -->
     <header>
         <div>
-            <img src="menu.png" ng-click="showControls = 'show'">
+            <img src="menu.png" ng-click="voice.showControls = 'show'">
         </div>
         <h1>Voice Play</h1>
     </header>
-    <div class="controls" ng-class="showControls">
-        <button ng-click="showControls=''" style="text-align: right;">X</button>
-        <button ng-click="showIt='micContainerShow'" ng-hide="showIt">Show Mic</button>
-        <button ng-click="showIt=''" ng-show="showIt">Hide Mic</button>
+    <div class="controls" ng-class="voice.showControls">
+        <button ng-click="voice.hideBoth()" style="text-align: right;">X</button>
+        <button ng-click="voice.showIt='micContainerShow'" ng-hide="voice.showIt">Show Mic</button>
+        <button ng-click="voice.showIt=''" ng-show="voice.showIt">Hide Mic</button>
         <button ng-hide="voice.vis" ng-click="voice.show()">Hide Music</button>
         <button ng-show="voice.vis" ng-click="voice.hide()">Show Music</button>
     </div>
-    <div class="micContainerBase" ng-class="showIt">
+    <div class="micContainerBase" ng-class="voice.showIt">
         <center>
             <p>SPEAK A COMMAND</p>
             <div id="microphone"></div>
         </center>
         <div id="info"></div>
-        <div>
+        <div id="develop">
             <pre id="result"></pre>
             <div id="error"></div>
         </div>

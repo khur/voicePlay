@@ -10,10 +10,11 @@ function voiceController() {
     var ctrl = this;
 
     ctrl.getSuccess;
-
+    ctrl.showIt;
 
     ctrl.show = show;
     ctrl.hide = hide;
+    ctrl.hideBoth = hideBoth;
 
     function show() {
         return ctrl.getSuccess = true, ctrl.vis = true;
@@ -22,6 +23,10 @@ function voiceController() {
     function hide() {
         return ctrl.getSuccess = false, ctrl.vis = false;
 
+    }
+
+    function hideBoth() {
+        return ctrl.showIt = '', ctrl.showControls = ''; 
     }
 
 
@@ -74,7 +79,7 @@ function voiceController() {
             alert("Please try again...");
         } else {
 
-            var song = ""; 
+            var song = "";
             if (entities.artist && entities.track) {
                 song = entities.track.body;
             }
@@ -119,7 +124,6 @@ function voiceController() {
                     console.dir(oEmbed);
 
                     document.getElementById("soundCloud").innerHTML = oEmbed.html;
-
                 });
             });
 
