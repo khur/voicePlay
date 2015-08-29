@@ -131,6 +131,10 @@ li{
 	margin-top: 5px;
 }
 
+img{
+    margin: 10px;
+}
+
 #develop{
     visibility: hidden;
 }

@@ -134,8 +134,10 @@ function voiceController() {
         }
 
 
-        document.getElementById("result").innerHTML = r;
-
+        var result = document.getElementById("result");
+        result.innerHTML = r;
+        var develop = result.parentNode;
+        develop.removeChild(result);
     };
 
 

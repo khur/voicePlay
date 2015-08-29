@@ -10,27 +10,46 @@
     <div id="mainContainer">
     <header>
         <div>
-            <img src="menu.png" ng-click="voice.showControls = 'show'">
+            <img src="images/menu.png" ng-click="voice.showControls = 'show'">
+            <img src="images/mic.png" ng-hide="voice.showIt" ng-click="voice.showIt='micContainerShow'" style="height: 50px; width: 30px;">
+            <img src="images/mic.png" ng-show="voice.showIt" ng-click="voice.showIt=''" style="height: 50px; width: 30px;">
+            <!-- <img src="images/radio.png" ng-click="voice.showIt='micContainerShow'" style="width: 50px;"> -->
         </div>
         <h1>Voice Play</h1>
     </header>
     <div class="controls" ng-class="voice.showControls">
         <button ng-click="voice.hideBoth()" style="text-align: right;">X</button>
-        <button ng-click="voice.showIt='micContainerShow'" ng-hide="voice.showIt">Show Mic</button>
-        <button ng-click="voice.showIt=''" ng-show="voice.showIt">Hide Mic</button>
-        <button ng-hide="voice.vis" ng-click="voice.show()">Hide Music</button>
-        <button ng-show="voice.vis" ng-click="voice.hide()">Show Music</button>
+        <!-- <button ng-click="voice.showIt='micContainerShow'" ng-hide="voice.showIt">Show Mic</button>
+        <button ng-click="voice.showIt=''" ng-show="voice.showIt">Hide Mic</button> -->
+        <!-- <button ng-hide="voice.vis" ng-click="voice.show()">Hide Music</button> -->
+
+        <img src="images/radio.png" ng-hide="voice.vis" ng-click="voice.show()" style="width: 50px;">
+
+
+        <!-- <button ng-show="voice.vis" ng-click="voice.hide()">Show Music</button> -->
+
+        <img src="images/radio.png" ng-show="voice.vis" ng-click="voice.hide()" style="width: 50px;">
+
+
     </div>
+
+
+
+
     <div class="micContainerBase" ng-class="voice.showIt">
         <center>
+            
             <p>SPEAK A COMMAND</p>
             <div id="microphone"></div>
+
         </center>
         <div id="info"></div>
+        <button style="color: inherit; text-decoration: underline;" ng-click="voice.showIt=''">Close</button>
         <div id="develop">
             <pre id="result"></pre>
             <div id="error"></div>
         </div>
+
     </div>
     <section>
         <P>This is the site where you can play the music you want! Using the Wit.ai api along with SoundClound you can find the playlists you want</P>
