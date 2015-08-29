@@ -54,9 +54,9 @@ function voiceController() {
     };
     mic.onresult = function(intent, entities) {
         var r = kv("intent", intent);
-
-        // console.log("enitities \n");
-        // console.dir(entities);
+        console.log(r);
+        console.log("First entities \n");
+        console.dir(entities);
 
         for (var k in entities) {
             var e = entities[k];
@@ -68,16 +68,30 @@ function voiceController() {
                 }
             }
         }
-
-        artist = entities.artist.body;
-
-        if (!artist || artist === undefined) {
-            document.getElementById("soundCloud").innerHTML = "<p>We got is buuuut..</p>";
+        console.log("this is second entities: \n");
+        console.dir(entities);
+        if (!entities.artist && !entities.track) {
+            alert("Please try again...");
         } else {
+
+            var song = ""; 
+            if (entities.artist && entities.track) {
+                song = entities.track.body;
+            }
+
+            if (!entities.artist && entities.track) {
+                song = entities.track.body;
+            }
+
+            if (entities.artist && !entities.track) {
+                song = entities.artist.body;
+            }
+            console.log(song);
+
             // Embeds SoundCloud widget on result of search
-            sanitizeUrl(artist);
-
-
+            var random = Math.round((Math.random(0, 10) * 10))
+            var keyWord = sanitizeUrl(song);
+            console.log("keyWord = " + keyWord);
 
             SC.initialize({
                 client_id: 'H5QMXAT27JD7BXIFPF5EIFU23VT2XFTV'
@@ -85,25 +99,30 @@ function voiceController() {
 
 
 
-            var track_url = 'http://soundcloud.com/' + artist;
+            SC.get('/tracks', {
+                q: keyWord
+            }, function(tracks) {
+                console.log("tracks: \n" + tracks);
+                console.dir(tracks);
+                var track_url = tracks[random].uri;
+                console.log("track url: " + track_url);
+                SC.oEmbed(track_url, {
+                    auto_play: true,
+                    maxheight: 166
+                }, function(oEmbed) {
 
-            console.log("track url: " + track_url);
+                    if (oEmbed === null) {
+                        alert("We are working on it... ")
+                    }
 
+                    console.log('oEmbed response: ' + oEmbed);
+                    console.dir(oEmbed);
 
-            SC.oEmbed(track_url, {
-                auto_play: true
-            }, function(oEmbed) {
+                    document.getElementById("soundCloud").innerHTML = oEmbed.html;
 
-                if (oEmbed === null) {
-                    document.getElementById("soundCloud").innerHTML = "<p>Doesn't exist! Try again!</p>";
-                }
-
-                console.log('oEmbed response: ' + oEmbed);
-                console.dir(oEmbed);
-
-                document.getElementById("soundCloud").innerHTML = oEmbed.html;
-
+                });
             });
+
         }
 
 
@@ -137,7 +156,8 @@ function voiceController() {
 
 
     function sanitizeUrl(str) {
-        var n = str.split(' ').join('%20')
+        console.log("This is the str: \n" + str)
+        var n = str.split(' ').join('-')
         console.log(n);
         return n;
     }

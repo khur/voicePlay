@@ -24,7 +24,7 @@ header{
     width: 75%;
     padding: 10px;
     text-align: center;
-    transform: translateY(-300px);
+    transform: translateY(-400px);
     background: -webkit-linear-gradient(to bottom right, white 65%, rgba(255, 255,255,.01)); /* For Safari 5.1 to 6.0 */
   	background: -o-linear-gradient(to bottom right, white 65%, rgba(255, 255,255,.01)); /* For Opera 11.1 to 12.0 */
   	background: -moz-linear-gradient(to bottom right, white 65%, rgba(255, 255,255,.01)); /* For Firefox 3.6 to 15 */
