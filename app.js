@@ -59,9 +59,9 @@ function voiceController() {
     };
     mic.onresult = function(intent, entities) {
         var r = kv("intent", intent);
-        console.log(r);
-        console.log("First entities \n");
-        console.dir(entities);
+        // console.log(r);
+        // console.log("First entities \n");
+        // console.dir(entities);
 
         for (var k in entities) {
             var e = entities[k];
@@ -73,8 +73,8 @@ function voiceController() {
                 }
             }
         }
-        console.log("this is second entities: \n");
-        console.dir(entities);
+        // console.log("this is second entities: \n");
+        // console.dir(entities);
         if (!entities.artist && !entities.track) {
             alert("Please try again...");
         } else {
@@ -91,12 +91,12 @@ function voiceController() {
             if (entities.artist && !entities.track) {
                 song = entities.artist.body;
             }
-            console.log(song);
+            // console.log(song);
 
             // Embeds SoundCloud widget on result of search
             var random = Math.round((Math.random(0, 10) * 10))
             var keyWord = sanitizeUrl(song);
-            console.log("keyWord = " + keyWord);
+            // console.log("keyWord = " + keyWord);
 
             SC.initialize({
                 client_id: 'H5QMXAT27JD7BXIFPF5EIFU23VT2XFTV'
@@ -107,10 +107,10 @@ function voiceController() {
             SC.get('/tracks', {
                 q: keyWord
             }, function(tracks) {
-                console.log("tracks: \n" + tracks);
-                console.dir(tracks);
+                // console.log("tracks: \n" + tracks);
+                // console.dir(tracks);
                 var track_url = tracks[random].uri;
-                console.log("track url: " + track_url);
+                // console.log("track url: " + track_url);
                 SC.oEmbed(track_url, {
                     auto_play: true,
                     maxheight: 166
@@ -120,10 +120,12 @@ function voiceController() {
                         alert("We are working on it... ")
                     }
 
-                    console.log('oEmbed response: ' + oEmbed);
-                    console.dir(oEmbed);
+                    // console.log('oEmbed response: ' + oEmbed);
+                    // console.dir(oEmbed);
 
                     document.getElementById("soundCloud").innerHTML = oEmbed.html;
+                    
+                    console.log("Great Pick!")
                 });
             });
 
@@ -160,9 +162,9 @@ function voiceController() {
 
 
     function sanitizeUrl(str) {
-        console.log("This is the str: \n" + str)
+        // console.log("This is the str: \n" + str)
         var n = str.split(' ').join('-')
-        console.log(n);
+        // console.log(n);
         return n;
     }
 
